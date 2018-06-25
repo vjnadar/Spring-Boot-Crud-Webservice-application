@@ -1,0 +1,49 @@
+body{
+	
+	margin:0;
+	
+	padding:0;
+	
+}
+    
+
+
+.clear
+
+{
+	
+	clear:both;
+	
+	
+} 
+#back { 
+margin: 0 auto;	
+background-image: url('../img/money.jpg');
+height:1000px;
+width:100%;
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.table-color{
+	
+	background-color:#E9ECEF;
+	
+	height:100%;
+	
+	width:80%;
+	
+	
+}    
+
+a:link, a:visited {
+    background-color: #47AE5A;
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin:1px 2px;
+    font-family: sans-serif;
+}
+    
