@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CurrencyConversionAppApplication",
+            "request": "launch",
+            "mainClass": "com.app.converter.CurrencyConversionAppApplication",
+            "projectName": "currency-conversion-app"
+        }
+    ]
+}
