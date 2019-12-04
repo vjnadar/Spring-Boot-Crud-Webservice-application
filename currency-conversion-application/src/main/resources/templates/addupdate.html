@@ -1,75 +1,97 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{css/background.css}" />
+  </head>
+  <body>
+    <div class="jumbotron" id="back">
+      <div class="container">
+        <h1>Add a currency value</h1>
+        <form
+          th:action="@{/postValues}"
+          id="addupdate"
+          method="POST"
+          th:object="${receiver}"
+        >
+          <div class="form-group row">
+            <input class="form-control" type="hidden" th:field="*{id}" />
+            <div class="col-sm-7">
+              <label for="from" class="col-form-label">From</label>
+              <input
+                class="form-control"
+                th:field="*{from}"
+                type="text"
+                id="from"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-7">
+              <label for="to" class="col-form-label">To</label>
+              <input
+                class="form-control"
+                th:field="*{to}"
+                type="text"
+                id="to"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-7">
+              <label for="conversionMultiple" class="col-form-label"
+                >Conversion Multiple</label
+              >
+              <input
+                class="form-control"
+                th:field="*{conversionMultiple}"
+                type="text"
+                id="conversionMultiple"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-7">
+              <input
+                class="form-control btn-success"
+                type="submit"
+                value="Submit"
+              />
+            </div>
+          </div>
+          <div id="errors" th:if="${#fields.hasErrors('from')}">
+            <p th:errors="*{from}">Name Error</p>
+          </div>
+        </form>
+        <hr />
+        <a class="clear" th:href="@{/display}">Return to main menu</a>
+      </div>
+    </div>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
 
-	<html xmlns:th="http://www.thymeleaf.org">
-	
-	<head>
-	
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
-		integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-		
-<link rel="stylesheet"  th:href="@{css/background.css}">
-		
-		
-		
-	
-	</head>
-	
-		<body>
-		<div class="jumbotron" id="back">
-			
-			
-			<div class="container">
-			<h1>Add a currency value</h1>
-			
-			<form th:action="@{/postValues}" id="addupdate" method="POST" th:object="${receiver}">  
-			
-			<div class="form-group row">
-			
-			
-			<input class="form-control" type="hidden" th:field="*{id}"/>
-			<div class="col-sm-7">
-			<label for="from" class="col-form-label">From</label>
-			<input class="form-control" th:field="*{from}" type="text" id="from"/>
-			</div>
-			</div>
-			<div class="form-group row">
-			<div class="col-sm-7">
-			<label for="to" class="col-form-label">To</label>
-			<input class="form-control" th:field="*{to}" type="text" id="to"/>
-			</div>
-			</div>
-			<div class="form-group row">
-			<div class="col-sm-7">  
-			<label for="conversionMultiple" class="col-form-label">Conversion Multiple</label>
-			<input class="form-control" th:field="*{conversionMultiple}" type="text" id="conversionMultiple"/>
-			</div>
-			</div>
-			<div class="form-group row">
-			<div class="col-sm-7">
-			<input class="form-control btn-success" type="submit" value="Submit"/>
-			</div>
-			</div>
-			 <div id="errors" th:if="${#fields.hasErrors('from')}">
-         <p  th:errors="*{from}">Name Error</p></div>
-			</form>
-			<hr>
-			<a class="clear" th:href="@{/display}">Return to main menu</a>	
-			</div>
-			</div>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
-			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
-			crossorigin="anonymous"></script>
-			
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" 
-			integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" 
-			integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>    
-		</body>
-	
-	
-	
-	
-	
-	</html>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+      integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
